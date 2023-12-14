@@ -5,7 +5,7 @@ from gtts import gTTS
 
 client = OpenAI()
 
-client.api_key = "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"
+client.api_key = "YOUR API KEY"
 
 
 # myPrompt = "What dinosaurs lived in the cretaceous period?"
