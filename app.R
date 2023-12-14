@@ -18,7 +18,7 @@ py_install("openai")
 py_install("gtts")
 
 #call python script by means of reticulate
-source_python("data/elogiosAI.py")
+source_python("data/miedoGenerator.py")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(#theme = shinytheme("journal"),
