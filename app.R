@@ -7,18 +7,17 @@ library(openai)
 library(magick)
 library(deeplr)
 
-DEEPL_KEY = "a17c9a0c-3194-7267-43b1-cf67baeadc8c:fx"
+#we will use two APIs: deepl for translation, and openAI for generative AI
+DEEPL_KEY = "YOUR KEY"
 Sys.setenv(
-  OPENAI_API_KEY = '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'
+  OPENAI_API_KEY = 'YOUR KEY'
 )
 
-#virtualenv_create("elogios")
-#reticulate::virtualenv_install("elogios", packages = c("openai", "gtts"))
+#install python libraries
 py_install("openai")
 py_install("gtts")
-#use_virtualenv("~/.virtualenvs/elogios", required = TRUE)
-#use_virtualenv("elogios", required = TRUE)
 
+#call python script by means of reticulate
 source_python("data/elogiosAI.py")
 
 # Define UI for application that draws a histogram
@@ -65,7 +64,7 @@ ui <- fluidPage(#theme = shinytheme("journal"),
           )
         ),
 
-        # Show a plot of the generated distribution
+        # For the main panel
         mainPanel(
            htmlOutput("distPlot"),
            HTML("<br>"),
@@ -75,7 +74,7 @@ ui <- fluidPage(#theme = shinytheme("journal"),
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic
 server <- function(input, output, session) {
   
   values <- reactiveValues()
